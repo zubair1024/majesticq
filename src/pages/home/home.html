@@ -5,15 +5,19 @@
 </ion-header>
 
 <ion-content>
-  <ion-searchbar placeholder="Filter Items with Cancel" showCancelButton color="danger" (ionInput)="filterItems($event)"></ion-searchbar>
+  <!-- <ion-searchbar [(ngModel)]="myInput" [showCancelButton]="shouldShowCancel" (ionInput)="onInput($event)" (ionCancel)="onCancel($event)">
+  </ion-searchbar> -->
+  <ion-searchbar placeholder="Search..." [showCancelButton]="shouldShowCancel" showCancelButton color="danger" (ionInput)="filterItems($event)"></ion-searchbar>
   <div *ngFor="let p of list">
     <ion-card (click)="navToPage(p.LeadID,p.CRef)">
       <ion-item>
-        <ion-icon color="subtle" large item-start name='md-albums'></ion-icon>
-        <ion-icon color="subtle" large item-end name='arrow-forward'></ion-icon>
+        <!-- <ion-icon color="subtle" large item-start name='md-albums'></ion-icon> -->
+        <ion-icon color="subtle" large item-end name='ios-arrow-forward'></ion-icon>
         <h2>{{p.englishName}}</h2>
-        <p text-wrap>{{p.englishNameTranslation}}</p>
+        <h2 item-left>{{p.number}}</h2>
         <p text-wrap>{{p.name}}</p>
+        <p text-wrap>{{p.englishNameTranslation}}</p>
+        <p text-wrap>{{p.numberOfAyahs}} Ayahs</p>
       </ion-item>
     </ion-card>
   </div>
