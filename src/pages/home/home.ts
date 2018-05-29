@@ -20,7 +20,6 @@ export class HomePage {
   }
 
   async deferred() {
-    console.log('came here');
     let data: any = await this.mainservice.getSurahList();
     if (data.data) {
       this.list = data.data;
